@@ -6,15 +6,18 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:14:01 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:55:23 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:42:30 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Takes as a parameter a node and frees the memory of /
+// the node’s content using the function
+
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst)
+	if (!lst || !del)
 		return ;
 	else
 	{
@@ -23,8 +26,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	}
 }
 
-// void del_content(void *content) {
-//     // Free memory allocated to the content
+// void del_content(void *content)
+// {
 //     free(content);
 // }
 
@@ -35,7 +38,10 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 //     node->next = NULL; // Set next pointer to NULL as it's the only node
 
 //     // Delete the content of the node
-//     ft_lstdelone(node, del_content);
-
+//     ft_lstdelone(node, del_content); 
 //     return (0);
 // }
+
+// funcao *del aponta para a funcao que /
+//foi passada como 2o argumneto (del_content)
+// funcao del_content liberta o espaco

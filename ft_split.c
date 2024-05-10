@@ -6,13 +6,13 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 16:14:18 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 18:08:59 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:48:06 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(const char *str, char c)
+static int	count_word(const char *str, char c)
 {
 	int	i;
 	int	words;
@@ -31,7 +31,7 @@ int	count_word(const char *str, char c)
 	return (words);
 }
 
-char	*word_aloc(const char *str, char c)
+static char	*word_aloc(const char *str, char c)
 {
 	char	*dest;
 	int		word_len;
@@ -50,7 +50,7 @@ char	*word_aloc(const char *str, char c)
 	return (dest);
 }
 
-void	*free_str(char **dest, int i)
+static void	*free_str(char **dest, int i)
 {
 	while (i >= 0)
 		free(dest[i--]);
@@ -64,6 +64,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	dest = (char **)malloc((count_word(s, c) + 1) * sizeof(char *));
 	if (!dest)
 		return (NULL);
@@ -81,23 +83,34 @@ char	**ft_split(char const *s, char c)
 		while (*s && *s != c)
 			s++;
 	}
-	dest[i] = '\0';
+	dest[i] = 0;
 	return (dest);
 }
-// int main(void) {
 
-//     const char *str = "cavalo de madeira";
-//     char delimiter = ' ';
+// word_aloc function goes word by word
+// After extracting a word, the function moves the 
+// pointer s to the next character after the current word.
+// 59 - frees each index of the string
+// 60 - frees the memory for the array itself
+// 70 - "**" bcs it stores an array of strings
+// int	main(void)
+// {
+// 	int i = 0;
+// 	const char *str = "";
+// 	char delimiter = 'z';
 
-//     char **result = ft_split(str, delimiter);
+// 	char **result = ft_split(str, delimiter);
 
-//     if (result) {
-//         for (int i = 0; result[i] != NULL; i++) {
-//             printf("Substring %d: \"%s\"\n", i + 1, result[i]);
-//         }
-//     } else
-//         printf("Memory allocation failed or input string is empty.\n");
-//     free_str(result, count_word(str, delimiter));
-
-//     return (0);
+// 	if (result)
+// 	{
+// 		while (result[i] != NULL)
+// 		{
+// 			printf("Substring %d: \"%s\"\n", i + 1, result[i]);
+// 			i++;
+// 		}
+// 	}
+// 	else
+// 		printf("Memory allocation failed or input string is empty.\n");
+// 	free_str(result, count_word(str , delimiter));
+// 	return (0);
 // }

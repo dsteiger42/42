@@ -6,11 +6,22 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 13:23:18 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:49:50 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:47:31 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+	DESCRIPTION :
+	The function ft_strtrim removes any characters of the given set from
+	the beginning and end of the given string s1, and allocates sufficient
+	memory to store the trimmed copy of the string.
+
+	RETURN VALUE :
+	A pointer to the trimmed copy of the string.
+	NULL if the memory allocation fails.
+*/
 
 int	is_char(const char *str, const char c)
 {
@@ -35,7 +46,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	start = 0;
-	if (!s1)
+	if (!s1 || !set)
 		return (NULL);
 	while (s1[start] && is_char(set, s1[start]))
 		start++;

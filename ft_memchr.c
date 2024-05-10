@@ -6,11 +6,22 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/11 17:02:16 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:54:39 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:58:01 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+	DESCRIPTION :
+	The function ft_memchr searches n bytes of the memory area pointed to
+	by s for the first occurence of c. Both c and the bytes of s are
+	interpreted as unsigned char.
+
+	RETURN VALUE:
+	A pointer to the matching byte. NULL if the character does not occur
+	in the given memory area.
+*/
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
@@ -29,8 +40,8 @@ void	*ft_memchr(const void *str, int c, size_t n)
 }
 // int	main(void)
 // {
-// 	char c[20] = "cazakhistan";
+// 	char string[20] = "cazakhistan";
 
-// 	printf ("%s\n", ft_memchr(c, 'h', 8));
+// 	printf ("%s\n", ft_memchr(string, 'h', 8));
 // 	return (0);
 // }

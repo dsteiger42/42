@@ -6,11 +6,13 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 11:17:37 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/23 16:27:19 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:18:44 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// transform characters into null bytes
 
 void	ft_bzero(void *str, size_t n)
 {

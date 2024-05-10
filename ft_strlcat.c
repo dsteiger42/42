@@ -6,30 +6,44 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 17:41:22 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 18:47:55 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/04/29 19:23:17 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	DESCRIPTION :
+	The function ft_strlcat appends the given string src to the end of
+	dst. It will append at most dstsize - ft_strlen(dst) - 1 and
+	nul-terminate the result.
+
+	Note : space for the terminating \0 character must be included in dstsize.
+
+	RETURN VALUE :
+	The total length of the string that it tried to create : the initial
+	length of dst + the length of src, with the goal to facilitate
+	truncaction detection.
+*/
+
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	dest_len;
-	size_t	available_space;
+	size_t	src_len;
 
+	src_len = ft_strlen(src);
 	dest_len = ft_strlen(dest);
 	i = 0;
-	available_space = size - 1 - dest_len;
-	if (size <= dest_len + 1)
-		available_space = 0;
-	while (i < available_space && src[i])
+	if (size <= dest_len)
+		return (size + src_len);
+	while (src[i] && (dest_len + i) < size - 1)
 	{
 		dest[dest_len + i] = src[i];
 		i++;
 	}
 	dest[dest_len + i] = '\0';
-	return (dest_len + i);
+	return (dest_len + src_len);
 }
 // int	main(void)
 // {

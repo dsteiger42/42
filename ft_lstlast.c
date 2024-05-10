@@ -6,15 +6,17 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:41:14 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 18:17:38 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:08:41 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Returns the last node of the list
+
 t_list	*ft_lstlast(t_list *lst)
 {
-	if (lst == NULL)
+	if (!lst)
 		return (NULL);
 	while (lst->next != NULL)
 		lst = lst->next;

@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 15:55:23 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:54:50 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:10:01 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_list	*ft_lstnew(void *content)
 	new_node->next = NULL;
 	return (new_node);
 }
+
+// 22 - the 2nd content is the parameter
 // int main()
 // {
 //     t_list *node = ft_lstnew("Hello");

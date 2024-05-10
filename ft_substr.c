@@ -6,26 +6,39 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 11:49:30 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:49:28 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/08 18:45:36 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/*
+	DESCRIPTION :
+	The function ft_substr extracts a substring from the given string by
+	allocating sufficient memory for the new string starting at index start
+	and ending at len characters.
+
+	RETURN VALUE :
+	A pointer to the new string.
+	NULL if the memory allocation fails.
+*/
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
+	size_t	i;
 	char	*dest;
 
-	i = 0;
+	if (!s)
+		return (NULL);
 	if (start >= ft_strlen(s))
 		len = 0;
 	else if (start + len >= ft_strlen(s))
 		len = ft_strlen(s) - start;
-	dest = (char *)malloc(len + 1);
+	dest = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!dest)
 		return (NULL);
-	while (s[i])
+	i = 0;
+	while (i < len && s[i])
 	{
 		dest[i] = s[start + i];
 		i++;
@@ -38,7 +51,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 // {
 // 	char *test;
 
-// 	test = ft_substr("cavalo de madeira", 6, 10);
+// 	test = ft_substr("cavalo de madeira", 5, 6);
 // 	printf ("%s\n", test);
 // 	free(test);
 // 	return (0);

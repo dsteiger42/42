@@ -6,65 +6,68 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 16:19:19 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 19:31:44 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/10 15:59:19 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+// Iterates the list ’lst’ and applies the function
+// ’f’ on the content of each node. Creates a new
+// list resulting of the successive applications of
+// the function ’f’
+
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_list;
+	t_list	*newlst;
 	t_list	*node;
 	void	*content;
 
-	new_list = NULL;
+	newlst = NULL;
 	node = NULL;
 	if (!lst || !f || !del)
 		return (NULL);
-	while (lst != NULL)
+	while (lst)
 	{
 		content = f(lst->content);
 		node = ft_lstnew(content);
 		if (!node)
 		{
 			del(content);
-			ft_lstclear(&new_list, del);
+			ft_lstclear(&newlst, del);
 			return (NULL);
 		}
-		ft_lstadd_back(&new_list, node);
+		ft_lstadd_back(&newlst, node);
 		lst = lst->next;
 	}
-	return (new_list);
+	return (newlst);
 }
 
-// 27 - ajuda a evitar leaks de memoria, caso a funcao f /
-// seja uma funcao que aloque memoria
-// 29 - verifica se a memoria foi alocada e,se nao,
-// 29 - apaga e liberta o espaco
-// 32 - adiciona os novos nodes ao final da lista
-
-// void del(void *content)
+// static void del(void *content)
 // {
 // 	free(content);
 // }
 
-// static void *upper(void *content)
+// static void	*upper(void *content)
 // {
-// 	char *c = (char *)content;
+// 	char	*c;
+
+// 	c = (char *)content;
 // 	while (*c != '\0')
 // 	{
 // 		if (*c >= 'a' && *c <= 'z')
-// 			*c -= 32; // Subtrai 32 para converter para maiúscula
+// 			*c -= 32;
 // 		c++;
 // 	}
-// 	return (content);
+// 	return (c);
 // }
 
-// int main()
+// int	main(void)
 // {
 // 	t_list *lst = NULL;
-// 	t_list *node1 = ft_lstnew("hello world!n");
+// 	t_list *node1 = ft_lstnew("A faZEr A mAiN dIA VINTE e um\n");
+// 	void *content = lst->content;
 
 // 	lst = node1;
 // 	if(!node1)
@@ -72,11 +75,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 // 		printf("Memory allocation failed, the node wasn't created\n");
 // 		return (1);
 // 	}
-// 	printf("The node was created and its content before lstmap is: %s\n",
-//		lst->content);
+// 	printf("The node was created and its content before lstmap is: %p\n",
+// 		content);
 // 	lst = ft_lstmap(lst, &upper, &del); // Remova o & antes de lst
-// 	printf("The content of the list after lstmap is: %s\n", lst->content);
-		// Adicione uma vírgula aqui
+// 	printf("The content of the list after lstmap is: %p\n", content);
+// 		// Adicione uma vírgula aqui
 // 	free(lst); // Liberar a lista após seu uso
 // 	return (0);
-// }
+// } 

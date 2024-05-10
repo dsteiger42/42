@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 15:19:59 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/23 14:56:40 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/04/30 17:46:36 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	*ft_calloc(size_t nb, size_t size)
 	ft_bzero(dest, nb * size);
 	return (dest);
 }
-
 // int	main(void)
 // {
 // 	int nb = 50;
+// 	int i = 40;
 
 // 	int *myAlloc = (int *)ft_calloc(nb, sizeof(int));
 // 	if (myAlloc == NULL)
@@ -33,14 +33,15 @@ void	*ft_calloc(size_t nb, size_t size)
 // 		printf("Memory allocation failed.\n");
 // 		return (1);
 // 	}
-// 	for (int ctd = 40; ctd < nb; ctd++)
+// 	while (i < nb)
 // 	{
-// 		printf("%d ", ctd);
-// 		if (myAlloc[ctd] != 0)
+// 		printf("%d ", i);
+// 		if (myAlloc[i] != 0)
 // 		{
 // 			printf("Error: Allocated memory is not initialized to zero.\n");
 // 			return (1);
 // 		}
+// 		i++;
 // 	}
 // 	free(myAlloc);
 // 	return (0);

@@ -6,11 +6,13 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:22:42 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/22 17:54:45 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/10 14:17:07 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Counts the number of nodes in a list
 
 int	ft_lstsize(t_list *lst)
 {
@@ -34,7 +36,7 @@ int	ft_lstsize(t_list *lst)
 //     t_list *list = NULL;
 //     int size;
 
-// 	node1 = ft_lstnew("Hello");
+// 	node1 = ft_lstnew("hello");
 // 	node2 = ft_lstnew("cavalo");
 // 	node3 = ft_lstnew("amarelo");
 

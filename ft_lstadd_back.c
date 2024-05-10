@@ -6,7 +6,7 @@
 /*   By: dsteiger <dsteiger@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 14:50:37 by dsteiger          #+#    #+#             */
-/*   Updated: 2024/04/23 16:21:37 by dsteiger         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:02:37 by dsteiger         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,21 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	temp = *lst;
+	if (!lst || !new)
+		return ;
 	if (*lst == NULL)
 		*lst = new;
 	else
 	{
+		temp = *lst;
 		while (temp->next != NULL)
 			temp = temp->next;
 		temp->next = new;
 	}
 }
-// 21 - if lst is empty, the pointer will make 'new' the 1st node
+// 19 - temp will point to the same place as lst
+// 21 - if list is empty, lst will point to the new node 'new', /
+// making it the 1st node of the list
 // 25 - segue para a frente ate ao ultimo node
 // 26 - aponta o ultimo node para "new" node
 

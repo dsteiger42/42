@@ -19,7 +19,7 @@ LST	=	ft_lstnew.c \
 		ft_lstiter.c \
 		ft_lstadd_back.c \
 		ft_lstclear.c \
-		ft_lstmap.c \
+		ft_lstmap.c
 
 COMPRESS = ar rcs
 
@@ -34,11 +34,11 @@ all: $(NAME)
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) 
 
-$(NAME): $(OBJS) $(BONUS_OBJS)
+$(NAME): $(OBJS)
 	@$(COMPRESS) $(NAME) $(OBJS)
 
 bonus: $(BONUS_OBJS) $(NAME)
-	@$(COMPRESS) $(NAME) $(BONUS_OBJS)
+	make OBJS="$(BONUS_OBJS)"
 
 clean:
 	@$(RM) $(OBJS) $(BONUS_OBJS)
